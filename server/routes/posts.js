@@ -4,12 +4,14 @@ import upload from '../middleware/upload.js';
 
 const router = express.Router();
 
-import { getPosts, createMemory, updatePost, deletePost } from '../controllers/posts.js';
+import { getPosts, createMemory, updatePost, deletePost, likePost, commentPost } from '../controllers/posts.js';
 
 
 router.get('/getpost', getPosts);
 router.post('/create', auth, upload.single('selectedFile'), createMemory);
 router.patch('/update/:id', auth, upload.single('selectedFile'), updatePost);
 router.delete('/delete/:id', auth, deletePost);
+router.patch('/likePost/:id', auth, likePost);
+router.post('/commentPost/:id', auth, commentPost);
 
 export default router;
