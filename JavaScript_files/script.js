@@ -88,7 +88,7 @@ if (signup_Form) {
             document.getElementById('wrong input').textContent = 'The Passwords do not match!';
         } else {
             alert('Sign up successful!');
-            // Redirect or handle signup logic here
+            // write code to handle signup logic here
         }
     });
 }
