@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    background-image: url(logo.jpg);
+    background-image: url(/assets/images/logo.jpg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -15,19 +15,141 @@ body {
 header {
     background-color: #0a0a0a;
     color: #fff;
-    padding: 2px;
-    text-align: center;
+    padding: 10px; 
+    display: flex; 
+    justify-content: space-between;  
+    align-items: center; 
+}
+
+header h1 {
+    margin-left: 50px;
+    font-size: 30px;
+    margin-right: 20px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    margin-top: 10px;
+  }
+  
+  .search-input {
+    border: none;
+    
+    margin-right: 3x;
+    height: 5px; 
+    width: 100px;
+  }
+  
+  .search-button {
+    border: none;
+    background-color: transparent;
+    color: #fff; 
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 5px;
+    padding: 0;
+}
+  
+
+nav {
+    margin-right: 50px;
+    margin-left: 50px;
+
 }
 
 nav a {
     color: #fff;
     margin: 0 15px;
     text-decoration: none;
+    font-size: 15px;
+    
+    
 }
+
 
 nav a:hover {
     text-decoration: underline;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.profile-container {
+    width: 40%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-pic-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-pic-section img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.profile-pic-section button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-info {
+    margin: 20px 0;
+}
+
+.profile-info p {
+    font-size: 16px;
+}
+
+#edit-btn, #save-btn {
+    padding: 8px 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#edit-btn {
+    margin-top: 10px;
+}
+
+.edit-profile-form input, .edit-profile-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.edit-profile-form {
+    display: none;
+}
+
 
 section {
     margin: 50px auto;
@@ -180,6 +302,56 @@ form button:hover {
     font-size: 18px;
     color: #333;
 }
+
+/* Ellipsis Button */
+.ellipsis-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+     /* Positioned to the left */
+    top: 10px;  /* Adjusts vertical positioning */
+    z-index: 10; /
+  }
+  
+  /* Menu Options (hidden by default) */
+  .menu-options {
+    position: absolute;
+    left: 10px;
+    top: 35px; 
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 5px;
+    display: none;
+    z-index: 10;
+  }
+  
+  .menu-options button {
+    display: block;
+    padding: 5px 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .menu-options button:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Ensures the ellipsis menu container takes proper position */
+  .ellipsis-menu-container {
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+    margin-left: 730px;
+    margin-bottom: 30px;
+  }
+  
 
 /* Search Section */
 #search form {
@@ -345,6 +517,7 @@ footer p {
     margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative
   }
   
   .blog-post h2 {

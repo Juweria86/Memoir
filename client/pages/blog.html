@@ -4,77 +4,128 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memoir</title>
-    <link rel="stylesheet" href="/style-css_files/style.css">
-    <link rel="icon" type="image.png" href="/Images/favicon.png">
-    <script src="/JavaScript_files/script.js" defer></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="icon" type="image.png" href="/assets/images/favicon.png">
+    <script src="/assets/css/style.css" defer></script>
 </head>
 <body>
-         <!-- Blog Main Content -->
-  <main class="blog-content">
-    <section class="blog-posts">
-      <h1>Latest Blog Posts</h1>
-      <!-- Example Blog Post 1 -->
-      <article class="blog-post">
-        <h2>Exploring Central Park</h2>
-        <p class="blog-meta">by <strong>Jane Smith</strong> on June 20, 2024</p>
-        <img src="/Images/Park.jpeg" alt="Central Park" class="blog-img">
-        <p>Central Park is one of New York’s most iconic landmarks, and I recently spent a beautiful day exploring its many trails and hidden gems...</p>
-        <a href="#" class="read-more">Read More</a>
-        <div class="blog-interaction">
-          <button class="like-btn">❤️ Like</button>
-          <span class="like-count">12 Likes</span>
-          <button class="comment-btn">💬 Comment</button>
-        </div>
-      </article>
 
-      <!-- Example Blog Post 2 -->
-      <article class="blog-post">
-        <h2>Amazing Paris Adventure</h2>
-        <p class="blog-meta">by <strong>Mensah John</strong> on July 18, 2024</p>
-        <img src="/Images/Eiffel Tower.jpeg" alt="Eiffel Tower" class="blog-img">
-        <p>Paris is a city like no other. From the breathtaking views of the Eiffel Tower to the historic streets of Montmartre, there's magic at every turn...</p>
-        <a href="#" class="read-more">Read More</a>
-        <div class="blog-interaction">
-          <button class="like-btn">❤️ Like</button>
-          <span class="like-count">10 Likes</span>
-          <button class="comment-btn">💬 Comment</button>
-        </div>
-      </article>
+    <!-- Header will be dynamically inserted here -->
+    <div id="header"></div>
 
-       <!-- Example Blog Post 3 -->
-     <article class="blog-post">
-        <h2>Adventure in the Mountains</h2>
-        <p class="blog-meta">Posted by <strong>Thompson Gilbert</strong> on August 10, 2024</p>
-        <img src="/Images/mountain.jpeg" alt="Mountains" class="blog-img">
-        <p>It was an incredible experience hiking through the mountains...</p>
-        <a href="#" class="read-more">Read More</a>
-        <div class="blog-interaction">
-          <button class="like-btn">❤️ Like</button>
-          <span class="like-count">15 Likes</span>
-          <button class="comment-btn">💬 Comment</button>
+
+
+    <!-- User Profile Section -->
+    <section id="profile">
+        <h2>John's Profile</h2>
+        <div class="profile-card">
+            <img src="/assets/images/john.jpeg" alt="Profile Picture">
+            <div class="info">
+                <h4>Mensah John</h4>
+                <p>Location: New York, USA</p>
+                <p>Birthday: April 10, 1990</p>
+                <p>Bio: A lover of life and photography. This is where I share my memories!</p>
+            </div>
         </div>
-      </article>
     </section>
 
+    <section id="profile">
+        <h2>Thompson's Profile</h2>
+        <div class="profile-card">
+            <img src="/assets/images/image.jpeg" alt="Profile Picture">
+            <div class="info">
+                <h4>Thompson Gilbert</h4>
+                <p>Location: ACCRA, GHANA</p>
+                <p>Birthday: JUNE 10, 1996</p>
+                <p>Bio: A lover of life and photography. This is where I share my memories!</p>
+            </div>
+        </div>
+    </section>
+     <!-- Profile Creation Form -->
+     <section class="profile-form">
+        <h3>Create Your Profile</h3>
+        <form action="submit_profile.html" method="POST" enctype="multipart/form-data">
+            <!-- Profile Picture Upload -->
+            <div class="form-group">
+                <label for="profile-pic">Upload Profile Picture</label>
+                <input type="file" id="profile-pic" name="profile-pic" accept="image/*" required>
+            </div>
 
-     <!-- Add Blog Section -->
-  <section class="add-blog">
-    <h1>Add a New Blog</h1>
-    <form action="#" method="POST">
-      <div class="form-group">
-        <label for="blog-title">Blog Title:</label>
-        <input type="text" id="blog-title" placeholder="Enter blog title" required>
-      </div>
-      <div class="form-group">
-        <label for="blog-content">Blog Content:</label>
-        <textarea id="blog-content" placeholder="Write your blog here..." required></textarea>
-      </div>
-      <div class="form-group">
-        <label for="blog-image">Upload Image:</label>
-        <input type="file" id="blog-image" accept="image/*">
-      </div>
-      <button type="submit" class="submit-btn">Publish Blog</button>
-    </form>
-  </section>
+            <!-- Name Input -->
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" required>
+            </div>
+
+            <!-- Location Input -->
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" placeholder="Your city or country" required>
+            </div>
+
+            <!-- Bio Input -->
+            <div class="form-group">
+                <label for="bio">Bio</label>
+                <textarea id="bio" name="bio" rows="4" placeholder="Write a short bio about yourself" required></textarea>
+            </div>
+
+            <!-- Birthday Input -->
+            <div class="form-group">
+                <label for="birthday">Birthday</label>
+                <input type="date" id="birthday" name="birthday" required>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit">Create Profile</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Posting Memories Section -->
+    <section id="memories">
+        <h2>Post a Memory</h2>
+        <form>
+            <textarea placeholder="Share your memory..."></textarea>
+            <input type="file" accept="image/*,video/*">
+            <button type="submit">Post</button>
+        </form>
+
+        <!-- List of Posted Memories -->
+        <h3>Recent Memories</h3>
+        <div class="memory-post">
+            <img src="/assets/images/john.jpeg" alt="Memory Image">
+            <div class="memory-content">
+                <h4>Mensah John</h4>
+                <p>A wonderful trip to the mountains last summer...</p>
+                <p><button>Like</button> <button>Comment</button></p>
+            </div>
+        </div>
+
+        <h3>Recent Memories</h3>
+        <div class="memory-post">
+            <img src="/assets/images/image.jpeg" alt="Memory Image">
+            <div class="memory-content">
+                <h4>Thompson Gilbert</h4>
+                <p>Amazing Paris Adventure: "Paris is truly magical!"</p>
+                <p><button>Like</button> <button>Comment</button></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Functionality -->
+    <section id="search">
+        <h2>Search</h2>
+        <form>
+            <input type="text" placeholder="Search users, posts, hashtags...">
+            <button type="submit">Search</button>
+        </form>
+    </section>
+
+    <!-- Footer will be dynamically inserted here -->
+    <div id="footer"></div>
+
+    <script src="/assets/js/loadComponents.js"></script>
+
 </body>
 </html>
