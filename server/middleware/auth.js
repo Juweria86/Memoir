@@ -4,12 +4,11 @@ const secret = 'test';
 
 const auth = async (req, res, next) => {
   try {
-    const token = req.headers.authorization.split(" ")[1];
-    const isCustomAuth = token.length < 500;
+    const token = req.header('Authorization');
 
     let decodedData;
 
-    if (token && isCustomAuth) {      
+    if (token) {
       decodedData = jwt.verify(token, secret);
 
       req.userId = decodedData?.id;
@@ -17,7 +16,7 @@ const auth = async (req, res, next) => {
       decodedData = jwt.decode(token);
 
       req.userId = decodedData?.sub;
-    }    
+    }
 
     next();
   } catch (error) {
