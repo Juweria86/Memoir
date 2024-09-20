@@ -49,8 +49,8 @@ export const signup = async (req, res) => {
 };
 
 export const updateUser = async (req, res) => {
-  if  (req.userId !== req.params.id) {
-   res.status(401).json({ message: "Unauthorized to update" });
+  if (!req.userId) {
+    res.status(404).json({ message: "Not authoruzed" })
   } else {
     const  { id } = req.params;
     const { email, password, name, age } = req.body;

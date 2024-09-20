@@ -24,5 +24,6 @@ const CONNECTION_URL = 'mongodb+srv://juweria:HKys9IuLWTc9ZqaC@cluster0.rcdmo.mo
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECTION_URL)
-    .then(() => app.listen(PORT, () => console.log(`server running on port ${PORT}`)))
-    .catch((error) => console.log(error.message));
+    .then(() => {
+      app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+   }).catch((error) => console.log("Database not connected" + " " + error.message));
