@@ -52,14 +52,16 @@ export const updateUser = async (req, res) => {
   if (!req.userId) {
     res.status(404).json({ message: "Not authoruzed" })
   } else {
+    
     const  { id } = req.params;
-    const { email, password, name, age } = req.body;
+    const { email, name, password } = req.body;
+    const profPics = req.file ? req.file.path : req.body.profilePics;
 
     if (!mongose.Types.ObjectId.isValid(id)) {
       return res.status(404).send('No such user');
     }
     const hashPassword = await bcrypt.hash(password, 12);
-    const updatedUser = { email, password: hashPassword, _id: id, name };
+    const updatedUser = { email, password: hashPassword, profPics, _id: id, name, };
     await UserModal.findByIdAndUpdate(id, updatedUser, { new: true});
     res.json(updatedUser);
   }
