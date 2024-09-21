@@ -7,7 +7,7 @@ const userSchema = mongoose.Schema({
   password: { type: String, required: true },
   id: { type: String },
   name: { type: String },
-  profPics: { type: String },
+  profPics: { type: String, reuired: true, default: 'uploads/profilePics/defaultUser.png' },
   location: { type: String },
 });
 
