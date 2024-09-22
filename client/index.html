@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="icon" type="image.png" href="assets/images/favicon.png">
     <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/loadComponents.js" defer></script>
+    <script src="/assets/js/protect.js" defer></script>
 </head>
 <body>
   <!-- Header will be dynamically inserted here -->
@@ -14,59 +16,44 @@
 
   
          <!-- Blog Main Content -->
-  <main class="blog-content">
-    <section class="blog-posts">
+  <main class="blog-content" >
+    <section class="blog-posts" id="memories-section">
       <h1>Latest Memories</h1>
-      <!-- Example Blog Post 1 -->
-      <article class="blog-post">
-        <div class="ellipsis-menu-container">
-          <button class="ellipsis-btn">⋮</button>
-          <div class="menu-options" id="menu-options" style="display:none;">
-            <button class="update-btn">Update</button>
-            <button class="delete-btn">Delete</button>
-          </div>
-        </div>
-        
-        <h2>Exploring Central Park</h2>
-        <p class="blog-meta">by <strong>Jane Smith</strong> on June 20, 2024</p>
-        <img src="assets/images/Park.jpeg" alt="Central Park" class="blog-img">
-        <p>Central Park is one of New York’s most iconic landmarks, and I recently spent a beautiful day exploring its many trails and hidden gems...</p>
-        <a href="#" class="read-more">Read More</a>
-        <div class="blog-interaction">
-          <button class="like-btn">❤️ Like</button>
-          <span class="like-count">12 Likes</span>
-          <button class="comment-btn">💬 Comment</button>
-        </div>
-
-
-      </article>
-
 
     </section>
 
 
+
      <!-- Add Blog Section -->
   <section class="add-blog">
-    <h1>Add a New Blog</h1>
-    <form action="#" method="POST">
+    <h1>Add a New Memory</h1>
+    <form action="#" method="POST" id="memory-form">
       <div class="form-group">
-        <label for="blog-title">Blog Title:</label>
+        <label for="blog-title">Memory Title:</label>
         <input type="text" id="blog-title" placeholder="Enter blog title" required>
       </div>
       <div class="form-group">
-        <label for="blog-content">Blog Content:</label>
-        <textarea id="blog-content" placeholder="Write your blog here..." required></textarea>
+        <label for="blog-content">Memory Content:</label>
+        <textarea id="blog-content" placeholder="Write your Memory here..." required></textarea>
       </div>
       <div class="form-group">
         <label for="blog-image">Upload Image:</label>
         <input type="file" id="blog-image" accept="image/*">
       </div>
-      <button type="submit" class="submit-btn">Publish Blog</button>
+      <button type="submit" class="submit-btn">Publish Memory</button>
     </form>
   </section>
+
+  <div class="pagination">
+    <button id="prev-btn" onclick="prevPage()">Previous</button>
+    <p>Page <span id="current-page-display"></span> of <span id="total-pages-display"></span></p>
+
+    <button id="next-btn" onclick="nextPage()">Next</button>
+
+  </div>
   <!-- Footer will be dynamically inserted here -->
   
-  <script src="assets/js/loadComponents.js"></script>
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
 

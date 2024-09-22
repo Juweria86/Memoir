@@ -1,8 +1,8 @@
 //profile page
 
-document.getElementById('edit-btn').addEventListener('click', function() {
-    document.getElementById('edit-form').style.display = 'block';
-});
+// document.getElementById('edit-btn').addEventListener('click', function() {
+//     document.getElementById('edit-form').style.display = 'block';
+// });
 
 document.getElementById('change-pic-btn').addEventListener('click', function() {
     document.getElementById('file-input').click();
@@ -32,11 +32,11 @@ document.querySelectorAll('.like-btn').forEach((Likebutton) => {
 });
 
 // This is for the comment button that handles it.
-document.querySelectorAll('.cmnt-button').forEach((commentbutton) => {
-    commentbutton.addEventListener('click', () => {
-        alert("Comment is uploading!");
-    });
-});
+// document.querySelectorAll('.cmnt-button').forEach((commentbutton) => {
+//     commentbutton.addEventListener('click', () => {
+//         alert("Comment is uploading!");
+//     });
+// });
 
 // This handles the post submission.
 const blog_Form = document.querySelector('.addblog form');
