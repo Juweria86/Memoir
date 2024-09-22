@@ -12,7 +12,7 @@ router.get('/', getPostsByPage);
 router.get('/:id', getPosts);
 
 router.post('/create', auth, upload.single('selectedFile'), createMemory);
-router.patch('/update/:id', auth, upload.single('selectedFile'), updatePost);
+router.patch('/update/:id', auth,  upload.single('selectedFile'), updatePost);
 router.delete('/delete/:id', auth, deletePost);
 
 router.patch('/likePost/:id', auth, likePost);

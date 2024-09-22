@@ -7,20 +7,32 @@ import UserModal from "../models/users.js";
 const secret = 'test';
 
 export const signin = async (req, res) => {
+<<<<<<< HEAD
   /* gets login details from body of request */
   const { email, password } = req.body;
 
   try {
   /* Searches the database for mathcing details */
     const oldUser = await UserModal.findOne({ email });
+=======
+  const { username, password } = req.body;
+
+  try {
+    const oldUser = await UserModal.findOne({ username });
+>>>>>>> 9738a97 (updated the post model)
 
     if (!oldUser) return res.status(404).json({ message: "User doesn't exist" });
   /* Compares the password with the  hashed password in database */
     const isPasswordCorrect = await bcrypt.compare(password, oldUser.password);
 
     if (!isPasswordCorrect) return res.status(400).json({ message: "Invalid credentials" });
+<<<<<<< HEAD
   /* Returns acess token unique to the user. expires in an hour interval */
     const token = jwt.sign({ email: oldUser.email, id: oldUser._id }, secret, { expiresIn: "1h" });
+=======
+
+    const token = jwt.sign({ username: oldUser.username, id: oldUser._id }, secret, { expiresIn: "1h" });
+>>>>>>> 9738a97 (updated the post model)
 
     res.status(200).json({ result: oldUser, token });
   } catch (err) {
@@ -41,8 +53,13 @@ export const signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 12);
   /*  Saves the new document in the database */
     const result = await UserModal.create({ email, password: hashedPassword, username });
+<<<<<<< HEAD
   /* Returns acess token unique to the usser. expires in an hour interval */
     const token = jwt.sign( { email: result.email, id: result._id }, secret, { expiresIn: "1h" } );
+=======
+
+    const token = jwt.sign( { username: result.username, id: result._id }, secret, { expiresIn: "1h" } );
+>>>>>>> 9738a97 (updated the post model)
 
     res.status(201).json({ result, token });
   } catch (error) {

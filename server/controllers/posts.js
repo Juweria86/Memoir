@@ -5,6 +5,7 @@ import { dirname, join } from 'path';
 import fs from 'fs';
 import path from 'path';
 import PostMessage from '../models/postMemory.js';
+import UserModal from '../models/users.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -15,7 +16,7 @@ export const getPosts = async (req, res) => {
     const { id } = req.params;
 
     try {
-        const post = await PostMessage.findById(id);
+        const post = await PostMessage.findById(id).populate('comments.userId', 'username');
         
         res.status(200).json(post);
     } catch (error) {
@@ -68,8 +69,11 @@ export const getPostsByCreator = async (req, res) => {
 
 
 export const createMemory = async (req, res) => {
-    const { title, message, creator, tags } = req.body;
+    const { title, message, tags } = req.body;
     const selectedFile = req.file ? `/uploads/posts/${req.file.filename}` : '';
+    const creator = req.username;
+
+    console.log('Creator:', creator);
 
     const newPostMessage = new PostMessage({
         title, 
@@ -146,8 +150,10 @@ export const updatePost = async (req, res) => {
 
     if (index === -1) {
       post.likes.push(req.userId);
+      post.likeCount += 1; // Increment like count
     } else {
       post.likes = post.likes.filter((id) => id !== String(req.userId));
+      post.likeCount -= 1; // Decrement like count
     }
 
     const updatedPost = await PostMessage.findByIdAndUpdate(id, post, { new: true });
@@ -157,15 +163,25 @@ export const updatePost = async (req, res) => {
 
 export const commentPost = async (req, res) => {
     const { id } = req.params;
-    const { value } = req.body;
+    const { value } = req.body; // The comment content
+
+    if (!req.userId) {
+        return res.status(401).json({ message: "Unauthenticated" });
+    }
 
     const post = await PostMessage.findById(id);
 
-    post.comments.push(value);
+    if (!post) {
+        return res.status(404).json({ message: "Post not found" });
+    }
+
+    const user = await UserModal.findById(req.userId);
+
+    post.comments.push({ userId: req.userId, username: user.username, content: value });
 
     const updatedPost = await PostMessage.findByIdAndUpdate(id, post, { new: true });
 
-    res.json(updatedPost);
+    res.status(200).json(updatedPost);
 };
 
 export default router;
