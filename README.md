@@ -12,6 +12,7 @@ The technologies employed in building  and designing of Memoir was selected afte
 One of the key challenges faced during the period of design and implementation of Memoir was availability of power supply which reduced in no significant way, the time allocated to designing and implementation of Memoir
 
 Dependencies required for Memoir to run
+
     • cors 
     • express
     • path
