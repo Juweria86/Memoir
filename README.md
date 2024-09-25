@@ -23,6 +23,7 @@ Dependencies required for Memoir to run
     • nodemon
 
 Procedure on how to use Memoir
+
     • Click on the sign up link at the right side of the navigation bar located at the top of the page and fill the form with required credentials including email and password. Click on  the sign up button to submit the credentials 
     • On successful completion of the sign up, the application redirects you to the login page where your email and password is required. Fill in the required field with the right information and click on the login button below.
     • After a successful login, the application renders the blog page where you are required to fill out a form containing Memory title, Memory Content and an image (if any). Once publish memory is clicked the memory is published with the title and its contents not  exempting the image if any was provided.
