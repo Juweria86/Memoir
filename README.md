@@ -1,10 +1,12 @@
 Memoir
 Memoir is a web based application that provides a platform for saving important memories which form parts of human’s existence. The memories could be exciting such ones such as achievements, accomplishments and success acquired or ones that leaves sad tales but important to history such as the break out of M-Pox etc.
+
 The technologies employed in building  and designing of Memoir was selected after a consideration of the following factors:
     • Time limitation: Owing to the fact that the project was given to be implemented and presented within the period of 4-5weeks
     • Easy access and implementation: Most if not all of the technologies employed could be easily accessed and used from any where.
     • Less Cost: The technologies used for the implementation of  Memoir was free and open source  and requires less finance to get them
     • Easy Comprehension of the code: Memoir code base used Javascript which is relatively easy to understand and implement.
+
 One of the key challenges faced during the period of design and implementation of Memoir was availability of power supply which reduced in no significant way, the time allocated to designing and implementation of Memoir
 
 Dependencies required for Memoir to run
