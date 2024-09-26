@@ -17,12 +17,8 @@ const auth = async (req, res, next) => {
       decodedData = jwt.decode(token);
 
       req.userId = decodedData?.sub;
-<<<<<<< HEAD
+
     }
-=======
-      req.username= decodedData?.username;
-    }    
->>>>>>> 9738a97 (updated the post model)
 
     next();
   } catch (error) {

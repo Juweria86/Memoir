@@ -2,14 +2,21 @@ import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
+import path from 'path';
+
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
 import postRoutes from './routes/posts.js';
 import userRouter from "./routes/userRoutes.js";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 const app = express();
 
 
-app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 
 app.use(bodyParser.json({ limit: "30mb", extended: true}));

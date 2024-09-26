@@ -6,9 +6,8 @@ const userSchema = mongoose.Schema({
   email: { type: String, required: true },
   password: { type: String, required: true },
   id: { type: String },
-  name: { type: String },
-  profPics: { type: String, reuired: true, default: 'uploads/profilePics/defaultUser.png' },
-  location: { type: String },
+  profPics: { type: String, default: '/uploads/profilePic/defaultUser.png' },
+  bio: { type: String },
 });
 
 export default mongoose.model("User", userSchema);
