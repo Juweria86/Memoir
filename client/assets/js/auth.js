@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (response.ok) {
           localStorage.setItem('token', data.token);
           alert('Login was successful!');
-          window.location.href = '/index.html';
+          window.location.href = '/pages/posts.html';
       } else {
           document.getElementById('wrong-input').innerText = data.message;
       }
@@ -72,53 +72,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Script that handles profile edit
-document.getElementById('edit-form').addEventListener('submit', async (event) => {
-  event.preventDefault();
-  const pics = document.getElementById('file-input');
-  const profPic = pics.files[0];
-  const mewUsername = document.getElementById('edit-username');
-  const newEmail = document.getElementById('edit-email');
-  const newBio = document.getElementById('edit-bio');
 
-  const profileUpdate = new FormData();
-  profileUpdate.append('username', newUsername);
-  profileUpdate.append('email', newEmail);
-  profileUpdate.append('bio', newBio);
-  if (proPic) {
-    profileUpdate.append('profPics', profPic);
-  }
-  const token = localStorage.getItem('token');
-  if (!toekn) {
-    alert('You are not logged in');
-  try {
-    const response = await fetch('http://localhost:5000/user/edituser') {
-      method: 'PATCH',
-      headers: { 'Authorization': `Bearer ${token}`
-      body: profileUpdte
-    });
-    if (!response.ok) {
-      throw new Error('Failed to update profile');
-    } else {
-      const updatedProfile = await response.json();
-      console.log(updateProfile)
-      displayUserProfile(updateProfile);
-    }
-  } catch (err) {
-    console.log('Error occured while updating');
-  };
-  alert('Update was successful');
-  window.location.reload();
-});
-
-function displayUserProfile(profile) {
-  const fetchUser = document.getElementById('username');
-  const fetchEmail = document.getElementById('email');
-  const fetchBio = document.getElementById('bio');
-  const fetchPics = document.getElementById('profile-pic');
-
-  const fetchUser.value = profile.username;
-  const fetchEmail.value = profile.email;
-  const fetchBio..value = profile.Bio;
-  const fetchPics.src = `http://localhost:5000${profile.profilePic}`;
-};

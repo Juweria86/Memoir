@@ -53,7 +53,7 @@
   
   .hero {
     height: 100vh;
-    background-image: url('/client/assets/images/memory\ image\ 3.webp'); /* Replace with the actual image */
+    background-image: url('/assets/images/memory image 3.webp'); /* Replace with the actual image */
     background-size: 500px;
     background-position: center;
     position: relative;
@@ -75,7 +75,7 @@
   }
   
   .hero-content p {
-    font-size: 1.2em;
+    font-size: 1.5em;
     margin-bottom: 1em;
   }
   
@@ -98,6 +98,7 @@
     background-size: 500px;
     padding: 3em;
     text-align: center;
+    color:#000;
   }
   
   .about-section h2 {

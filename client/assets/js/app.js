@@ -19,11 +19,18 @@ async function fetchMemories() {
     memories.forEach(memory => {
       displayMemory(memory);
     });
+    // Clear the form fields after submission
+    
   } catch (error) {
     console.error('Error fetching memories:', error);
   }
 }
-
+// Function to clear the form inputs
+function clearForm() {
+  document.getElementById('memory-form').reset(); // Reset the form
+  document.getElementById('memory-form').removeAttribute('data-post-id'); // Remove postId if it was an update
+  document.getElementById('current-image').src = ''; // Clear the displayed image (if any)
+}
 
 // Form submit event listener to create a new memory
 document.getElementById('memory-form').addEventListener('submit', async (event) => {
@@ -77,6 +84,7 @@ document.getElementById('memory-form').addEventListener('submit', async (event) 
       // Refresh the memories list
       fetchMemories();
     }
+    clearForm();
   } catch (error) {
     console.error('Error submitting form:', error);
   }
@@ -115,7 +123,7 @@ function displayMemory(memory) {
         <div class="comments-section">
             <h3>Comments:</h3>
             <div class="existing-comments" style="display: none;">
-                ${memory.comments.map(comment => `<p>${comment.content} - <em>${comment.username}</em></p>`).join('')}
+                ${memory.comments.map(comment => `<p>${comment.content}</p>`)}
             </div>
         </div>
         <input type="text" class="comment-input" placeholder="Add a comment..." />
